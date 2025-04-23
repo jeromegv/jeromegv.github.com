@@ -18,6 +18,20 @@ Calendly.initInlineWidget({
 url: 'https://calendly.com/cambio-and-sinta/virtual-styling-appointment-with-cambio-co',
 parentElement: document.getElementById('calendly-embed')
 });
+
+  function isCalendlyEvent(e) {
+  return e.data.event &&
+         e.data.event.indexOf('calendly') === 0;
+};
+ 
+window.addEventListener(
+  'message',
+  function(e) {
+    if (isCalendlyEvent(e)) {
+      console.log(e.data);
+    }
+  }
+);
 </script>
 
 <!--  ----------------------------------------------------------------------  -->
